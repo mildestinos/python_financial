@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo de KPIs - Paleta Correios</title>
+<style>
+/* ===== RESET ===== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Tahoma,sans-serif;}
+body{background:#F2F2F2;color:#333;padding:20px;}
+header{text-align:center;margin-bottom:40px;}
+header h1{font-size:2.4rem;color:#004B8D;margin-bottom:8px;}
+header p{color:#4D4D4D;}
+footer{text-align:center;margin-top:40px;font-size:.9rem;color:#4D4D4D;}
+
+/* ===== GRID ===== */
+.kpi-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+/* ===== CARD BASE ===== */
+.kpi-card{
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+  transition:transform .2s;
+  position:relative;
+}
+.kpi-card:hover{transform:translateY(-5px);}
+.kpi-card h2{font-size:1rem;margin-bottom:10px;color:#4D4D4D;}
+.kpi-card .value{font-size:1.8rem;font-weight:bold;color:#004B8D;margin-bottom:10px;}
+.trend{font-size:.9rem;font-weight:bold;padding:4px 8px;border-radius:6px;}
+.trend.up{color:#006837;background:#E6F5E6;}
+.trend.down{color:#C0392B;background:#FDECEA;}
+
+/* ===== CATEGORIAS COM CORES CORREIOS ===== */
+.finance    {border-left:6px solid #FFCC29;}   /* Amarelo Correios */
+.operations {border-left:6px solid #004B8D;}   /* Azul Correios */
+.marketing  {border-left:6px solid #3B9CFF;}   /* Azul Claro */
+.hr         {border-left:6px solid #4D4D4D;}   /* Cinza Escuro */
+.logistica  {border-left:6px solid #FFA000;}   /* Laranja Correios */
+.ti         {border-left:6px solid #009688;}   /* Verde Suporte */
+
+/* ===== PROGRESS BAR ===== */
+.progress-wrapper{margin-top:10px;}
+.progress-label{font-size:.85rem;color:#4D4D4D;margin-bottom:4px;}
+.progress-bar{
+  height:16px;
+  border-radius:8px;
+  background:#F2F2F2;
+  overflow:hidden;
+}
+.progress-bar span{
+  display:block;
+  height:100%;
+  border-radius:8px;
+  background:linear-gradient(90deg,#004B8D,#3B9CFF);
+  width:75%;
+}
+
+/* ===== CIRCLE LOAD ===== */
+.circle-wrapper{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:15px;
+}
+.circle{
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  background:
+    radial-gradient(closest-side, #fff 79%, transparent 80% 100%),
+    conic-gradient(#FFCC29 0 65%, #F2F2F2 65% 100%);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-weight:bold;
+  color:#004B8D;
+  font-size:1.2rem;
+}
+
+/* ===== SPARKLINE ===== */
+.sparkline{
+  width:100%;
+  height:40px;
+  background:repeating-linear-gradient(
+    90deg,
+    transparent 0 10px,
+    rgba(0,0,0,.05) 10px 20px
+  );
+  margin-top:10px;
+  position:relative;
+  border-radius:4px;
+}
+.sparkline::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  height:40px;
+  width:100%;
+  background:linear-gradient(90deg,#FFCC29,#004B8D);
+  clip-path:polygon(
+    0% 60%,10% 40%,20% 70%,30% 35%,40% 55%,
+    50% 25%,60% 50%,70% 30%,80% 60%,90% 40%,100% 50%
+  );
+  border-radius:4px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Catálogo de KPIs</h1>
+  <p>Layout estático com a paleta de cores Correios</p>
+</header>
+
+<main class="kpi-grid">
+
+  <!-- Financeiro -->
+  <div class="kpi-card finance">
+    <h2>Receita Mensal</h2>
+    <p class="value">R$ 1.750.000</p>
+    <span class="trend up">+10%</span>
+    <div class="sparkline"></div>
+  </div>
+
+  <div class="kpi-card finance">
+    <h2>Lucro Bruto</h2>
+    <p class="value">R$ 620.000</p>
+    <span class="trend down">-2%</span>
+    <div class="sparkline"></div>
+  </div>
+
+  <!-- Operações -->
+  <div class="kpi-card operations">
+    <h2>Objetos Entregues/dia</h2>
+    <p class="value">98.200</p>
+    <span class="trend up">+5%</span>
+    <div class="progress-wrapper">
+      <div class="progress-label">Meta 100.000</div>
+      <div class="progress-bar"><span style="width:90%;"></span></div>
+    </div>
+  </div>
+
+  <div class="kpi-card operations">
+    <h2>Prazo Médio de Entrega</h2>
+    <p class="value">1,8 dias</p>
+    <span class="trend down">-0,3</span>
+    <div class="progress-wrapper">
+      <div class="progress-label">Objetivo: ≤ 2 dias</div>
+      <div class="progress-bar"><span style="width:80%;background:linear-gradient(90deg,#FFCC29,#004B8D);"></span></div>
+    </div>
+  </div>
+
+  <!-- Marketing -->
+  <div class="kpi-card marketing">
+    <h2>Taxa de Conversão Online</h2>
+    <p class="value">6,8%</p>
+    <span class="trend up">+1,1%</span>
+    <div class="sparkline"></div>
+  </div>
+
+  <div class="kpi-card marketing">
+    <h2>CAC (Custo por Cliente)</h2>
+    <p class="value">R$ 210</p>
+    <span class="trend down">-3%</span>
+    <div class="sparkline"></div>
+  </div>
+
+  <!-- Logística -->
+  <div class="kpi-card logistica">
+    <h2>Taxa de Atraso</h2>
+    <p class="value">1,2%</p>
+    <span class="trend down">-0,4%</span>
+    <div class="circle-wrapper">
+      <div class="circle" style="background:
+        radial-gradient(closest-side,#fff 79%,transparent 80% 100%),
+        conic-gradient(#FFA000 0 88%, #F2F2F2 88% 100%); color:#FFA000;">
+        88%
+      </div>
+    </div>
+  </div>
+
+  <!-- Recursos Humanos -->
+  <div class="kpi-card hr">
+    <h2>Índice de Satisfação</h2>
+    <p class="value">84%</p>
+    <span class="trend up">+4%</span>
+    <div class="circle-wrapper">
+      <div class="circle" style="background:
+        radial-gradient(closest-side,#fff 79%,transparent 80% 100%),
+        conic-gradient(#004B8D 0 84%, #F2F2F2 84% 100%); color:#004B8D;">
+        84%
+      </div>
+    </div>
+  </div>
+
+  <!-- TI -->
+  <div class="kpi-card ti">
+    <h2>Disponibilidade de Sistemas</h2>
+    <p class="value">99,98%</p>
+    <span class="trend up">+0,1%</span>
+    <div class="circle-wrapper">
+      <div class="circle" style="background:
+        radial-gradient(closest-side,#fff 79%,transparent 80% 100%),
+        conic-gradient(#009688 0 99%, #F2F2F2 99% 100%); color:#009688;">
+        99%
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2025 - Catálogo de KPIs com Paleta Correios</p>
+</footer>
+
+</body>
+</html>

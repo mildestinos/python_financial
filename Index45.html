@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel de Métricas</title>
+<style>
+/* ===== RESET ===== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Tahoma,sans-serif;}
+body{
+  background:#ECEFF1;
+  color:#333;
+  padding:30px;
+}
+
+/* ===== TÍTULO PRINCIPAL ===== */
+h1{
+  margin-bottom:25px;
+  text-align:center;
+  color:#004B8D;
+  font-weight:bold;
+}
+
+/* ===== GRID PRINCIPAL ===== */
+.metric-container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:25px;
+}
+
+/* ===== COLUNA DE MÉTRICAS ===== */
+.metric-column{
+  background:#fff;
+  width:230px;
+  border-radius:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.15); /* sombra principal */
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:transform .2s, box-shadow .2s;
+}
+.metric-column:hover{
+  transform:translateY(-4px);
+  box-shadow:0 6px 16px rgba(0,0,0,0.2); /* efeito ao passar o mouse */
+}
+
+/* ===== CABEÇALHO DE CADA MÉTRICA ===== */
+.metric-header{
+  background:#004B8D;
+  color:#fff;
+  padding:14px;
+  font-weight:bold;
+  text-align:center;
+  font-size:1.1rem;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+  box-shadow:inset 0 -2px 0 rgba(0,0,0,0.1);
+}
+
+/* ===== CORPO ===== */
+.metric-body{
+  padding:15px 18px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+/* ===== ITEM DE SUBMÉTRICA ===== */
+.metric-item{
+  display:flex;
+  flex-direction:column;
+  border-left:4px solid #FFCC29;
+  padding-left:10px;
+  background:#FAFAFA;
+  border-radius:6px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.08); /* leve sombra em cada item */
+  padding-top:6px;
+  padding-bottom:6px;
+}
+
+.metric-item .label{
+  font-weight:bold;
+  color:#004B8D;
+  margin-bottom:2px;
+  font-size:0.95rem;
+}
+
+.metric-item .value{
+  font-size:1.3rem;
+  font-weight:bold;
+  margin-bottom:2px;
+}
+
+.metric-item .goal{
+  font-size:0.85rem;
+  color:#666;
+}
+
+/* ===== CORES DE VALORES ===== */
+.value.up{color:#27ae60;}      /* verde para positivo */
+.value.down{color:#c0392b;}    /* vermelho para negativo */
+.value.neutral{color:#333;}    /* neutro */
+
+.goal span{
+  font-weight:bold;
+  color:#004B8D;
+}
+</style>
+</head>
+<body>
+
+<h1>Painel de Métricas</h1>
+
+<div class="metric-container">
+
+  <!-- MÉTRICA 1 -->
+  <div class="metric-column">
+    <div class="metric-header">Metric 1</div>
+    <div class="metric-body">
+      <div class="metric-item">
+        <div class="label">BMX</div>
+        <div class="value down">7.2</div>
+        <div class="goal">Goal: <span>7</span></div>
+      </div>
+      <div class="metric-item">
+        <div class="label">Hybrid</div>
+        <div class="value up">1.8</div>
+        <div class="goal">Goal: <span>2</span></div>
+      </div>
+      <div class="metric-item">
+        <div class="label">Mountain</div>
+        <div class="value up">9.2</div>
+        <div class="goal">Goal: <span>9</span></div>
+      </div>
+      <div class="metric-item">
+        <div class="label">Road</div>
+        <div class="value down">5.5</div>
+        <div class="goal">Goal: <span>3</span></div>
+      </div>
+      <div class="metric-item">
+        <div class="label">Track</div>
+        <div class="value neutral">5</div>
+        <div class="goal">Goal: <span>4</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MÉTRICA 2 -->
+  <div class="metric-column">
+    <div class="metric-header">Metric 2</div>
+    <div class="metric-body">
+      <div class="metric-item">
+        <div class="label">BMX</div>
+        <div class="value down">82%</div>
+        <div class="goal">Goal: <span>85%</span></div>
+      </div>
+      <div class="metric-item">
+        <div class="label">Hybrid</div>
+        <div class="value up">87%</div>
+        <div class="goal">Goal: <span>85%</span></div>
+      </div>
+      <div class="metric-item">
+        <div class="label">Mountain</div>
+        <div class="value up">93%</div>
+        <div class="goal">Goal: <span>85%</span></div>
+      </div>
+      <div class="metric-item">
+        <div class="label">Road</div>
+        <div class="value down">79%</div>
+        <div class="goal">Goal: <span>85%</span></div>
+      </div>
+      <div class="metric-item">
+        <div class="label">Track</div>
+        <div class="value up">95%</div>
+        <div class="goal">Goal: <span>85%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MÉTRICA 3 -->
+  <div class="metric-column">
+    <div class="metric-header">Metric 3</div>
+    <div class="metric-body">
+      <div class="metric-item">
+        <div class="label">BMX</div>
+        <div class="value up">500</div>
+        <div class="goal">Goal: <span>580</span></div>
+      </div>
+      <div class="metric-item">
+        <div class="label">Hybrid</div>
+        <div class="value down">496</div>
+        <div class="goal">Goal: <span>500</span></div>
+      </div>
+      <div class="metric-item">
+        <div class="label">Mountain</div>
+        <div class="value up">138</div>
+        <div class="goal">Goal: <span>150</span></div>
+      </div>
+      <div class="metric-item">
+        <div class="label">Road</div>
+        <div class="value down">417</div>
+        <div class="goal">Goal: <span>390</span></div>
+      </div>
+      <div class="metric-item">
+        <div class="label">Track</div>
+        <div class="value up">380</div>
+        <div class="goal">Goal: <span>275</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MÉTRICA 4 -->
+  <div class="metric-column">
+    <div class="metric-header">Metric 4</div>
+    <div class="metric-body">
+      <div class="metric-item">
+        <div class="label">BMX</div>
+        <div class="value down">16</div>
+        <div class="goal">Goal: <span>20</span></div>
+      </div>
+      <div class="metric-item">
+        <div class="label">Hybrid</div>
+        <div class="value neutral">15</div>
+        <div class="goal">Goal: <span>14</span></div>
+      </div>
+      <div class="metric-item">
+        <div class="label">Mountain</div>
+        <div class="value up">30</div>
+        <div class="goal">Goal: <span>26</span></div>
+      </div>
+      <div class="metric-item">
+        <div class="label">Road</div>
+        <div class="value down">38</div>
+        <div class="goal">Goal: <span>45</span></div>
+      </div>
+      <div class="metric-item">
+        <div class="label">Track</div>
+        <div class="value neutral">21</div>
+        <div class="goal">Goal: <span>18</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MÉTRICA 5 -->
+  <div class="metric-column">
+    <div class="metric-header">Metric 5</div>
+    <div class="metric-body">
+      <div class="metric-item">
+        <div class="label">BMX</div>
+        <div class="value up">310</div>
+        <div class="goal">Goal: <span>100</span></div>
+      </div>
+      <div class="metric-item">
+        <div class="label">Hybrid</div>
+        <div class="value up">100</div>
+        <div class="goal">Goal: <span>100</span></div>
+      </div>
+      <div class="metric-item">
+        <div class="label">Mountain</div>
+        <div class="value up">110</div>
+        <div class="goal">Goal: <span>100</span></div>
+      </div>
+      <div class="metric-item">
+        <div class="label">Road</div>
+        <div class="value down">20</div>
+        <div class="goal">Goal: <span>40</span></div>
+      </div>
+      <div class="metric-item">
+        <div class="label">Track</div>
+        <div class="value up">100</div>
+        <div class="goal">Goal: <span>100</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
